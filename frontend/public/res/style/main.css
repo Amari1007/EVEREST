@@ -1,0 +1,34 @@
+*{
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+}
+
+html{
+    font-size: 62.5%;
+}
+
+body{
+    height: 100vh;
+    font: 1.7rem Helvetica, Arial;
+    scroll-behavior: smooth;
+}
+
+nav, main, footer{
+    border: 1px solid black;
+}
+
+.grid-container{
+    display: grid;
+    grid-template-areas: 'nav' 'main' 'footer';
+    grid-template-columns: 1fr;
+    grid-template-rows: 10rem auto 20rem;
+    height: auto;
+    width: 100%;
+    border: 1px solid red;
+}
+
+/******** MAIN **********/
+main{
+    min-height: 800px;
+}

@@ -2,8 +2,9 @@
   "name": "everest",
   "version": "1.0.0",
   "description": "personal app",
-  "main": "index.js",
+  "main": "data.js",
   "scripts": {
+    "start": "nodemon --ignore frontend backend/data.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -17,6 +18,10 @@
   },
   "homepage": "https://github.com/Amari1007/EVEREST#readme",
   "dependencies": {
-    "mongo": "^0.1.0",
-    "webpack": "^5.88.1",
-    "
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "mongodb": "^5.7.0",
+    "nodemon": "^3.0.1"
+  }
+}
