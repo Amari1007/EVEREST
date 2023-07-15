@@ -28,7 +28,20 @@ nav, main, footer{
     border: 1px solid red;
 }
 
+/******** NAV ***********/
+nav{
+    background-color: rgb(58, 87, 141);
+    color: white;
+}
+
 /******** MAIN **********/
 main{
     min-height: 800px;
+}
+
+
+/******* FOOTER ********/
+footer{
+    background-color: rgb(52, 77, 52);
+    color: white;
 }

@@ -13,13 +13,15 @@ async function get_data(){
 
 window.addEventListener("DOMContentLoaded", async ()=>{
     const data = await get_data();
+    const _date = new Date(data.date);
     table_rows.innerHTML = `
         <tr>
+            <td>${_date.toLocaleTimeString()}, ${_date.toDateString()}</td>   
+            <td>${data.header}</td>
+            <td>${data.body}</td>
+            <td>${data.source}</td>
             <td>xxx</td>
-            <td>xxx</td>
-            <td>xxx</td>
-            <td>xxx</td>
-            <td>xxx</td>
+            <td></td>
         </tr>
     `
 
