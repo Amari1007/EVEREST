@@ -1,12 +1,124 @@
-table{
-    background-color: rgb(236, 236, 236);
+main{
+    display: flex;
+    flex-direction: column;
+    row-gap: 40px;
+    font-family: Verdana;
 }
 
-table, th, td, tr{
-    border: 1px solid black;
+/********* TOP BOX *********/
+.top-box{
+    display: flex;
+    flex-direction: row;
+    column-gap: 300px;
+    /* border: 1px solid black; */
+    padding: 10px;
+}
+
+.top-box input{
+    outline: none;
+    border: 1px solid lightslategray;
+    font-size: 15px;
+    padding: 5px;
+    width: 350px;
+}
+
+.control-panel{
+    display: flex;
+    margin-top: 30px;
+    justify-content: center;
+    flex-direction: row;
+    border-color: 1px solid blue;
+}
+
+#table-view{
+    display: inline-block;
+    width: 45%;
+    min-width: 30%;
+    max-width: 60%;
+    resize: horizontal;
+    overflow: auto;
+}
+
+table{
+    background-color: rgb(255, 255, 255);
+    font-size: 1.35rem;
+    width: 100%;
+}
+
+table,td,th{
+    border: 0px solid black;
     border-collapse: collapse;
 }
 
 td, th{
+    padding: 20px;
+}
+
+.tb-border-bottom{
+    border-bottom: 2px solid lightgrey;
+}
+
+/********* STORY PREVIEW DIV *********/
+#preview-view{
+    display:flex;
+    width: 55%;
+    min-width: 40%;
+    max-width: 70%;
+    row-gap: 40px;
+    flex-direction: column;
+    font: 15px Helvetica;
+    resize: horizontal;
+    overflow: scroll;
+    border-left:1px solid lightgray;
+}
+
+.story-view{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    row-gap: 10px;
+}
+
+.story-header{
+    padding-left: 30px;
+    font: 15px Helvetica;
+}
+
+.story-body{
+    margin-top: 20px;
+    padding-left: 30px;
+    font: 14px Verdana;
+}
+
+/******* PREVIEW OPTIONS ********/
+.preview-options{
+    border: 0px solid red;
     padding: 10px;
+}
+
+.preview-options button{
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    color: white;
+    font: 15px Helvetica;
+    width: 80px;
+}
+
+.btn-delete{
+    background-color: rgb(226, 47, 47);
+}
+
+.btn-edit{
+    background-color: rgb(236, 174, 59);
+}
+
+.btn-save{
+    background-color: rgb(36, 209, 65);
+}
+
+.btn-close{
+    background-color: rgb(135, 141, 136);
 }

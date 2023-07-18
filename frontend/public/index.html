@@ -9,7 +9,7 @@
     <link rel="icon" type="image/x-icon" href="./res/img/web-logo.png">
     <link rel="stylesheet" href="./res//style/main.css">
     <link rel="stylesheet" href="./res//style/home.css">
-    <title>Business News Database</title>
+    <title>HOME - DB VIEW</title>
 </head>
 
 <body>
@@ -18,28 +18,81 @@
             <h3>Navbar</h3>
         </nav>
         
-        <main>
-            <h3>Main</h3>
+        <main>            
+            <div class="top-box">
+                <input type="search" placeholder="Search..." title="Type in to search">
+                
+                <div>
+                    <h3>Control Panel</h3>
+                </div>
+            </div>
             
-            <div class="table-container">
+            <div class="control-panel">
 
-                <table class="table-display">
-                    <thead>
-                        <tr>
-                            <th>Date</th> <th>Header</th> <th>Body</th> <th>Source</th> <th>Type</th> <th>Last Edited</th>
-                        </tr>
-                    </thead>
+                <div id="table-view">
+                    <table class="table-display">
+                        <thead hidden>
+                            <tr>
+                                <th></th> <th></th> <th></th>
+                            </tr>
+                        </thead>
+    
+                        <tbody id="table-data-rows">
+                            <tr class="tb-border-bottom">
+                                <td class="tb-border-right">Malawi Pres. Meets Biden</td>
+                                <td class="tb-border-right">BBC News | Africa</td>
+                                <td class="tb-border-right">Sat, 17 Oct</td>
+                            </tr>
+                            
+                            <tr class="tb-border-bottom">
+                                <td class="tb-border-right">Africa-US Summit Held In Botswana</td>
+                                <td class="tb-border-right">Bloomberg</td>
+                                <td class="tb-border-right">Sat, 7 Oct</td>
+                            </tr>
+                            
+                            <tr class="tb-border-bottom">
+                                <td class="tb-border-right">China Opens Oil Refinery In Kenya</td>
+                                <td class="tb-border-right">Insider Africa</td>
+                                <td class="tb-border-right">Sat, 3 Oct</td>
+                            </tr>
+                            <!-- DATA FROM DB -->
+                        </tbody>
+    
+                        <tfoot>
+                            <tr>
+                                <td colspan="6">Copyright EVEREST<sup>&reg;</sup> 2023</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
 
-                    <tbody id="table-data-rows">
-                        <!-- DATA FROM DB -->
-                    </tbody>
+                <div id="preview-view">
+                    <div class="preview-options">
+                        <button class="btn-edit">Edit</button>
+                        <button class="btn-save">Save</button>
+                        <button class="btn-delete">Delete</button>
+                        <button class="btn-close">Close</button>
+                    </div>
 
-                    <tfoot>
-                        <tr>
-                            <td colspan="6">Copyright EVEREST<sup>&reg;</sup> 2023</td>
-                        </tr>
-                    </tfoot>
-                </table>
+                    <div class="story-view">
+                        <div class="story-header">
+                            <h2>Malawi Pres. Meets Biden</h2>
+                            <p>17/10/2023 | 14:33</p>
+                            <p>Source: BBC News | Africa</p>
+                            <p>Last Edited: 17/09/2022 | 14:33</p>
+                        </div>
+
+                        <div class="story-body">
+                            <p>Et netus et malesuada fames ac. Orci nulla pellentesque dignissim enim sit.</p>
+                            <p>At quis risus sed vulputate odio ut enim </p>
+                            <p>Eu nisl nunc mi ipsum. Sed vulputate mi sit amet mauris commodo quis imperdiet. 
+                            <p>Lobortis scelerisque fermentum dui faucibus in ornare quam viverra orci. </p>
+                            <p>Mauris in aliquam sem fringilla. Quis vel eros donec ac odio tempor orci. Hac habitasse platea dictumst vestibulum rhoncus. </p>
+                            <p>Urna id volutpat lacus laoreet non. Velit ut tortor pretium viverra suspendisse potenti.</p>
+                        </div>
+                        
+                    </div>
+                </div>
 
             </div>
         </main>
@@ -50,6 +103,6 @@
     </div>    
 </body>
 
-<script src="./module1.js" defer></script>
+<!-- <script src="./module1.js" defer></script> -->
 
 </html>

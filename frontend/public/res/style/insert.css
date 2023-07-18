@@ -1,0 +1,54 @@
+main{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    row-gap: 30px;
+}
+
+main{
+    /*padding: 20px;*/
+}
+
+main .table-container{
+    border: 1px solid black;
+    width: 100%;
+}
+
+/*********** FORM ************/
+.div-form form input{
+    display: block;
+    border: 1px solid black;
+    border-radius: 2px;
+    outline: none;
+    padding: 5px;
+    margin: 10px;
+    font-size: 1.4rem Verdana bold;
+}
+
+.div-form form input:focus{
+    border: 1px solid purple;
+}
+
+#textbox{
+    border: 1px solid lightgrey;
+    outline: none;
+    font: 1.3rem Verdana;
+    width: 600px;
+    height: 200px;
+    margin: 10px;
+}
+
+#textbox:focus{
+    border: 1px solid purple;
+    transition: 0.4s;
+}
+
+/****** SUBMIT BUTTON *****/
+.div-form form input[type="button"]{
+    background-color: rgb(0, 143, 0);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+} 

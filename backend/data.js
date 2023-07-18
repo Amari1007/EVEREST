@@ -20,7 +20,7 @@ async function runInsertMongo(user_data = {}){
   try {
     if(user_data.body != undefined || user_data.header != undefined){
       await mongoose.connect(localSrv);
-      console.log("connected");
+      console.log("db connected");
   
       const tableSchema = new mongoose.Schema(schema);
       

@@ -1,33 +1,41 @@
 //comparison is the thief pf joy :D
-
 require("dotenv").config();
 const {runMain,runInsertMongo,runGetMongo} = require("./data.js");
 const express = require("express");
 const cors = require("cors");
 const app = express();
-const PORT = 8888;
+const PORT = 1313 || process.env.PORT;
 //const PORT = process.env.PORT || 8888;
 
 app.use(cors({origin:"*"}));
+app.use(express.urlencoded({extended:false}));
+app.use(express.json());
 //app.use(_tracker);
 
-/*const test_data = {
-    header:"Ghambi signs for Real Madrid",
-    body:"Will wear number 5...",
-    source:"James Pearce",
-    date:new Date().getTime(),
-}*/
+app.post("/backend/api/sendData", async(req, res)=>{
+    const user_data = req.body;
+    console.log("user data", user_data);
+    const response = await runInsertMongo({
+        header:user_data.header,
+        body:user_data.text_box,
+        source:user_data.source,
+        date:new Date().getTime(),
+    });
 
-app.get("/backend/api/tableData", async (req, res)=>{    
+    res.json({message:response.DB_Message, success:response.insert_record});
+});
+
+app.get("/backend/api/tableData", async (req, res)=>{
     const param = {body:"body1",header:"header1"};
     const db_res = await runGetMongo(param);
+    const date = new Date(); // USED TO DISPLAY IN DEBUG
 
     if(db_res.success){//if opp success
         res.json({db:db_res.DBdata, success:db_res.success, db_message:db_res.DB_Message});
-        console.log("backend responding: success...");
+        console.log(`backend responding: success at ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`);;
     }else{
         res.json({db:db_res.DBdata, success:db_res.success, db_message:db_res.DB_Message});
-        console.log("backend responding: fail...");
+        console.log(`backend responding: fail at ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`);;
     }
 });
 
