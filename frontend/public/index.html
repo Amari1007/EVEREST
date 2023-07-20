@@ -7,6 +7,7 @@
     <meta name="description" content="This is a personal database website">
     <meta name="author" content="Chaupi Ghambi">
     <link rel="icon" type="image/x-icon" href="./res/img/web-logo.png">
+    <link rel="stylesheet" href="./res/style/font-awesome-4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./res//style/main.css">
     <link rel="stylesheet" href="./res//style/home.css">
     <title>HOME - DB VIEW</title>
@@ -21,15 +22,12 @@
         <main>            
             <div class="top-box">
                 <input type="search" placeholder="Search..." title="Type in to search">
-                
-                <div>
-                    <h3>Control Panel</h3>
-                </div>
             </div>
             
             <div class="control-panel">
 
                 <div id="table-view">
+                    <div class="table-view-header"> View </div>
                     <table class="table-display">
                         <thead hidden>
                             <tr>
@@ -38,22 +36,22 @@
                         </thead>
     
                         <tbody id="table-data-rows">
-                            <tr class="tb-border-bottom">
-                                <td class="tb-border-right">Malawi Pres. Meets Biden</td>
-                                <td class="tb-border-right">BBC News | Africa</td>
-                                <td class="tb-border-right">Sat, 17 Oct</td>
+                            <tr class="tb-border-bottom" onclick="row_selected(this)" data-i="123463">
+                                <td class="tb-border-right row-header">Malawi Pres. Meets Biden</td>
+                                <td class="tb-border-right row-source">BBC News | Africa</td>
+                                <td class="tb-border-right row-date">Sat, 17 Oct</td>
                             </tr>
                             
-                            <tr class="tb-border-bottom">
-                                <td class="tb-border-right">Africa-US Summit Held In Botswana</td>
-                                <td class="tb-border-right">Bloomberg</td>
-                                <td class="tb-border-right">Sat, 7 Oct</td>
+                            <tr class="tb-border-bottom" onclick="row_selected(this)" data-i="700071">
+                                <td class="tb-border-right row-header">Africa-US Summit Held In Botswana</td>
+                                <td class="tb-border-right row-source">Bloomberg</td>
+                                <td class="tb-border-right row-date">Sat, 7 Oct</td>
                             </tr>
                             
-                            <tr class="tb-border-bottom">
-                                <td class="tb-border-right">China Opens Oil Refinery In Kenya</td>
-                                <td class="tb-border-right">Insider Africa</td>
-                                <td class="tb-border-right">Sat, 3 Oct</td>
+                            <tr class="tb-border-bottom" onclick="row_selected(this)" data-i="111096">
+                                <td class="tb-border-right row-header">China Opens Oil Refinery In Kenya</td>
+                                <td class="tb-border-right row-source">Insider Africa</td>
+                                <td class="tb-border-right row-date">Sat, 3 Oct</td>
                             </tr>
                             <!-- DATA FROM DB -->
                         </tbody>
@@ -68,10 +66,10 @@
 
                 <div id="preview-view">
                     <div class="preview-options">
-                        <button class="btn-edit">Edit</button>
-                        <button class="btn-save">Save</button>
-                        <button class="btn-delete">Delete</button>
-                        <button class="btn-close">Close</button>
+                        <div class="btn-edit"> <i class="fa fa-pencil"></i> Edit</div>
+                        <div class="btn-save"> <i class="fa fa-save"></i> Save</div>
+                        <div class="btn-delete"> <i class="fa fa-trash"></i> Delete</div>
+                        <div class="btn-close"> <i class="fa fa-window-close"></i> Close</div>
                     </div>
 
                     <div class="story-view">
@@ -103,6 +101,7 @@
     </div>    
 </body>
 
+<script src="row_select.js" defer></script>
 <!-- <script src="./module1.js" defer></script> -->
 
 </html>

@@ -1,7 +1,7 @@
 main{
     display: flex;
     flex-direction: column;
-    row-gap: 40px;
+    row-gap: 30px;
     font-family: Verdana;
 }
 
@@ -11,7 +11,7 @@ main{
     flex-direction: row;
     column-gap: 300px;
     /* border: 1px solid black; */
-    padding: 10px;
+    padding: 30px;
 }
 
 .top-box input{
@@ -24,6 +24,7 @@ main{
 
 .control-panel{
     display: flex;
+    height: 100%;
     margin-top: 30px;
     justify-content: center;
     flex-direction: row;
@@ -33,10 +34,16 @@ main{
 #table-view{
     display: inline-block;
     width: 45%;
+    height: 100%;
     min-width: 30%;
     max-width: 60%;
-    resize: horizontal;
     overflow: auto;
+}
+
+.table-view-header{
+    padding: 10px;
+    font: bold 25px Arial;
+    border-bottom: 1px solid lightgray;
 }
 
 table{
@@ -62,13 +69,12 @@ td, th{
 #preview-view{
     display:flex;
     width: 55%;
+    height: 100%;
     min-width: 40%;
     max-width: 70%;
     row-gap: 40px;
     flex-direction: column;
     font: 15px Helvetica;
-    resize: horizontal;
-    overflow: scroll;
     border-left:1px solid lightgray;
 }
 
@@ -96,29 +102,21 @@ td, th{
     padding: 10px;
 }
 
-.preview-options button{
-    padding: 10px;
-    border-radius: 4px;
+.preview-options div{
+    padding: 1px;
+    text-align: center;
     cursor: pointer;
-    border: none;
     outline: none;
-    color: white;
-    font: 15px Helvetica;
-    width: 80px;
+    color: black;
+    font: 1.6rem Helvetica;
+    width: 90px;
 }
 
-.btn-delete{
-    background-color: rgb(226, 47, 47);
+.btn-delete, .btn-close, .btn-edit, .btn-save{
+    display: inline-block;
 }
 
-.btn-edit{
-    background-color: rgb(236, 174, 59);
-}
-
-.btn-save{
-    background-color: rgb(36, 209, 65);
-}
-
-.btn-close{
-    background-color: rgb(135, 141, 136);
+.preview-options div:hover{
+    border-bottom: 2px solid black;
+    transition: 50ms;
 }
