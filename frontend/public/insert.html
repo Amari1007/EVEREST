@@ -7,6 +7,7 @@
     <meta name="description" content="This is a personal database website">
     <meta name="author" content="Chaupi Ghambi">
     <link rel="icon" type="image/x-icon" href="./res/img/web-logo.png">
+    <link rel="stylesheet" href="./res/style/font-awesome-4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./res//style/main.css">
     <link rel="stylesheet" href="./res//style/insert.css">
     <title>INSERT PANEL</title>
@@ -19,14 +20,40 @@
         </nav>
         
         <main>
-            <h3>Update</h3>
+            <div class="header1">
+                <div class="go-back-link" onclick="location.assign('./index.html')" Title="Navigate to home page">&lt;&lt;&lt; Go Back</div>
+                <div></div>
+            </div>
             
             <div class="table-container">
                 <div class="div-form">
                     <form name="articleForm" method="post">
-                        <input type="text" spellcheck="true" name="header" placeholder="Header..." title="Type in header...">
+                        <input type="text" spellcheck="true" id="input-header" name="header" placeholder="Header" title="Title">
+                        <input type="text" name="source" title="Article Source" placeholder="Source">
+                        
+                        <div class="form-row">
+                            <input type="date" name="date" title="Date Published">
+                            
+                            <div>
+                                <button type="button" onclick="copyTextBox()" id="copy-btn" title="Copy from textbox">
+                                    <span class="fa fa-copy"></span>
+                                </button>
+                            </div>
+
+                            <div>
+                                <button type="button" onclick="pasteToTextBox()" id="paste-btn" title="Paste to textbox">
+                                    <span class="fa fa-paste"></span>
+                                </button>
+                            </div>
+
+                            <div>
+                                <button type="button" onclick="document.getElementById('textbox').innerHTML=null" id="clear-btn" title="Clear textbox">
+                                    <span class="fa fa-trash-o"></span>
+                                </button>
+                            </div>
+                        </div>
+                        
                         <div id="textbox" contenteditable="true" spellcheck="true"></div>
-                        <input type="text" name="source" title="Article source" placeholder="source...">
                         <input type="button" id="btn-save" name="submit" value="SAVE" title="Save">
                     </form>
                 </div>
@@ -40,5 +67,6 @@
 </body>
 
 <script src="./update.js" defer></script>
+<script src="copy-paste.js" defer></script>
 
 </html>

@@ -8,6 +8,7 @@ async function runMain(){
   return {superUser:"Chaupi Ghambi",_password:"1007"}
 }
 
+//INSERT DATA IN MONGODB
 async function runInsertMongo(user_data = {}){
   const schema = {
     id:Number,
@@ -24,12 +25,12 @@ async function runInsertMongo(user_data = {}){
   
       const tableSchema = new mongoose.Schema(schema);
       
-      //ADD METHOD TO SCHEMA
+      //ADD METHOD TO SCHEMA (FOR TESTING)
       tableSchema.methods.displayBody = function(){console.log(this.body)};
       
       const _model = mongoose.model("dbhima", tableSchema); //APPLY SCHEMA TO MODEL
       const _insert = new _model({
-        id: await new Date().getTime(),
+        id: await new Date().getTime(), //ID IS ONLY INSERTED HERE DIRECTLY IN DB UPON DOC CREATION
         header: await user_data.header,
         body: await user_data.body,
         source: await user_data.source,
@@ -52,6 +53,7 @@ async function runInsertMongo(user_data = {}){
 
 };
 
+//GET DATA FROM MONGODB
 async function runGetMongo(param = {}){
 
   try {
@@ -70,7 +72,7 @@ async function runGetMongo(param = {}){
 
     if(param.body != undefined || param.header != undefined || param !=null){
       console.log("responding...");
-      return {DBdata:await dbModel.find(), success:true, DB_Message:"read opp success"};
+      return {DBdata:await dbModel.find().sort({date:-1}), success:true, DB_Message:"read opp success"};
     }else{
       throw "No param provided";
     }

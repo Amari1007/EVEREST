@@ -27,7 +27,7 @@
             <div class="control-panel">
 
                 <div id="table-view">
-                    <div class="table-view-header"> View </div>
+                    <div class="table-view-header"> View <div class="insert-page-link" onclick="location.assign('./insert.html')" title="Add New Article">+</div> </div>
                     <table class="table-display">
                         <thead hidden>
                             <tr>
@@ -36,29 +36,12 @@
                         </thead>
     
                         <tbody id="table-data-rows">
-                            <tr class="tb-border-bottom" onclick="row_selected(this)" data-i="123463">
-                                <td class="tb-border-right row-header">Malawi Pres. Meets Biden</td>
-                                <td class="tb-border-right row-source">BBC News | Africa</td>
-                                <td class="tb-border-right row-date">Sat, 17 Oct</td>
-                            </tr>
-                            
-                            <tr class="tb-border-bottom" onclick="row_selected(this)" data-i="700071">
-                                <td class="tb-border-right row-header">Africa-US Summit Held In Botswana</td>
-                                <td class="tb-border-right row-source">Bloomberg</td>
-                                <td class="tb-border-right row-date">Sat, 7 Oct</td>
-                            </tr>
-                            
-                            <tr class="tb-border-bottom" onclick="row_selected(this)" data-i="111096">
-                                <td class="tb-border-right row-header">China Opens Oil Refinery In Kenya</td>
-                                <td class="tb-border-right row-source">Insider Africa</td>
-                                <td class="tb-border-right row-date">Sat, 3 Oct</td>
-                            </tr>
                             <!-- DATA FROM DB -->
                         </tbody>
     
                         <tfoot>
                             <tr>
-                                <td colspan="6">Copyright EVEREST<sup>&reg;</sup> 2023</td>
+                                <td colspan="6">EVEREST<sup>&reg;</sup> 2023</td>
                             </tr>
                         </tfoot>
                     </table>
@@ -74,19 +57,14 @@
 
                     <div class="story-view">
                         <div class="story-header">
-                            <h2>Malawi Pres. Meets Biden</h2>
-                            <p>17/10/2023 | 14:33</p>
-                            <p>Source: BBC News | Africa</p>
-                            <p>Last Edited: 17/09/2022 | 14:33</p>
+                            <h2></h2>
+                            <p></p>
+                            <p></p>
+                            <p></p>
                         </div>
 
                         <div class="story-body">
-                            <p>Et netus et malesuada fames ac. Orci nulla pellentesque dignissim enim sit.</p>
-                            <p>At quis risus sed vulputate odio ut enim </p>
-                            <p>Eu nisl nunc mi ipsum. Sed vulputate mi sit amet mauris commodo quis imperdiet. 
-                            <p>Lobortis scelerisque fermentum dui faucibus in ornare quam viverra orci. </p>
-                            <p>Mauris in aliquam sem fringilla. Quis vel eros donec ac odio tempor orci. Hac habitasse platea dictumst vestibulum rhoncus. </p>
-                            <p>Urna id volutpat lacus laoreet non. Velit ut tortor pretium viverra suspendisse potenti.</p>
+                            <!-- CONTENT HERE -->
                         </div>
                         
                     </div>
@@ -102,6 +80,6 @@
 </body>
 
 <script src="row_select.js" defer></script>
-<!-- <script src="./module1.js" defer></script> -->
+<script src="populate_table.js" defer></script>
 
 </html>

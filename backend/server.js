@@ -12,20 +12,20 @@ app.use(express.urlencoded({extended:false}));
 app.use(express.json());
 //app.use(_tracker);
 
-app.post("/backend/api/sendData", async(req, res)=>{
+app.post("/backend/api/saveData", async(req, res)=>{
     const user_data = req.body;
     console.log("user data", user_data);
     const response = await runInsertMongo({
         header:user_data.header,
         body:user_data.text_box,
         source:user_data.source,
-        date:new Date().getTime(),
+        date:user_data.date,
     });
 
     res.json({message:response.DB_Message, success:response.insert_record});
 });
 
-app.get("/backend/api/tableData", async (req, res)=>{
+app.get("/backend/api/getTableData", async (req, res)=>{
     const param = {body:"body1",header:"header1"};
     const db_res = await runGetMongo(param);
     const date = new Date(); // USED TO DISPLAY IN DEBUG

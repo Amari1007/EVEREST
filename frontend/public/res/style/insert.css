@@ -4,51 +4,110 @@ main{
     flex-wrap: nowrap;
     align-items: center;
     row-gap: 30px;
+    height: 100%;
+    width:100%;
 }
 
-main{
-    /*padding: 20px;*/
+/********* HEADER ***********/
+.header1{
+    display: flex;
+    flex-direction: row;
+    /* border: 1px solid black; */
+    width: 99%;
+    padding-left: 20px;
+    height: auto;
+}
+
+.go-back-link{
+    cursor: pointer;
+    margin: 20px;
+    font: normal normal normal 18px/2px Arial;
+}
+
+.go-back-link:hover{
+    color:rgb(32, 169, 211);
+    font-size: 19px;
 }
 
 main .table-container{
-    border: 1px solid black;
-    width: 100%;
+    width: 99%;
+    height: 100%;
+    padding-left: 20px;
 }
 
 /*********** FORM ************/
-.div-form form input{
+.div-form form input[type="text"], .div-form form input[type="date"]{
     display: block;
-    border: 1px solid black;
-    border-radius: 2px;
     outline: none;
-    padding: 5px;
+    border: none;
+    font: normal normal normal 16px/10px 'Trebuchet MS','Tahoma';
+    border-bottom: 1px solid lightgray;
+    width: 700px;
+    padding: 10px;
     margin: 10px;
     font-size: 1.4rem Verdana bold;
 }
 
-.div-form form input:focus{
-    border: 1px solid purple;
+.div-form form input[type="text"]:focus, .div-form form input[type="date"]:focus{
+    border-bottom: 2px solid lightgray;
 }
 
+.div-form form input[type="date"]{
+    width: 200px !important;
+}
+
+.form-row{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+}
+
+#copy-btn, #paste-btn, #clear-btn{
+    background-color: rgb(35, 99, 119);
+    font:normal normal bold 18px/10px 'Tahoma';
+    text-align: center;
+    outline: none;
+    border: none;
+    border-radius: 3px;
+    height: 40px;
+    width: 70px;
+    color: white;
+    margin-left:20px;
+}
+
+#copy-btn:hover, #paste-btn:hover, #clear-btn:hover{
+    background-color: rgb(24, 73, 88);
+}
+
+/*********** TEXT BOX **********/
 #textbox{
     border: 1px solid lightgrey;
     outline: none;
-    font: 1.3rem Verdana;
-    width: 600px;
-    height: 200px;
+    font: normal normal normal 16px/20px 'Tahoma';
+    padding: 10px;
+    width: 800px;
+    min-height: 600px;
     margin: 10px;
 }
 
 #textbox:focus{
-    border: 1px solid purple;
-    transition: 0.4s;
+    border: 2px solid purple;
 }
 
 /****** SUBMIT BUTTON *****/
-.div-form form input[type="button"]{
+#btn-save{
     background-color: rgb(0, 143, 0);
+    font:normal normal bold 14px/20px Arial;
     color: white;
     border: none;
     padding: 10px;
     cursor: pointer;
+    width: 100px !important;
+    text-align: center;
+    margin: 20px;
 } 
+
+#btn-save:hover{
+    background-color: rgb(3, 110, 3);
+}

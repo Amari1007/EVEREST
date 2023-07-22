@@ -9,8 +9,8 @@ html{
 }
 
 body{
-    height: 100vh;
-    font: 1.7rem Helvetica, Arial;
+    height: 100dvh;
+    font: 1.7rem 'Tahoma', 'Helvetica', 'Arial';
     scroll-behavior: smooth;
 }
 
@@ -22,7 +22,7 @@ nav, main, footer{
     display: grid;
     grid-template-areas: 'nav' 'main' 'footer';
     grid-template-columns: 1fr;
-    grid-template-rows: 10rem auto 20rem;
+    grid-template-rows: 10rem auto 40rem;
     height: auto;
     width: 100%;
     /* border: 1px solid red; */

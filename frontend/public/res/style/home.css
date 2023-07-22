@@ -22,6 +22,7 @@ main{
     width: 350px;
 }
 
+/******** DB TABLE ROWS *********/
 .control-panel{
     display: flex;
     height: 100%;
@@ -31,6 +32,23 @@ main{
     border-color: 1px solid blue;
 }
 
+.table-view-header{
+    padding: 20px;
+    font: bold 25px Arial;
+    border-bottom: 1px solid lightgray;
+}
+
+.insert-page-link{
+    font-size: 40px;
+    float: right;
+    cursor: pointer;
+}
+
+.insert-page-link:hover{
+    color:rgb(32, 169, 211);
+    font-size: 45px;
+}
+
 #table-view{
     display: inline-block;
     width: 45%;
@@ -38,12 +56,6 @@ main{
     min-width: 30%;
     max-width: 60%;
     overflow: auto;
-}
-
-.table-view-header{
-    padding: 10px;
-    font: bold 25px Arial;
-    border-bottom: 1px solid lightgray;
 }
 
 table{
@@ -58,7 +70,24 @@ table,td,th{
 }
 
 td, th{
-    padding: 20px;
+    padding: 15px;
+}
+
+tr{
+    cursor: pointer;
+}
+
+tr:hover{
+    background-color: rgb(238, 238, 238);
+}
+
+.row-source{
+    color:rgb(32, 169, 211);
+}
+
+.row-date{
+    color: grey;
+    font-size: 1.3rem;
 }
 
 .tb-border-bottom{
@@ -86,6 +115,9 @@ td, th{
 }
 
 .story-header{
+    display: flex;
+    flex-direction: column;
+    row-gap: 7px;
     padding-left: 30px;
     font: 15px Helvetica;
 }
@@ -94,6 +126,7 @@ td, th{
     margin-top: 20px;
     padding-left: 30px;
     font: 14px Verdana;
+    width: 95%;
 }
 
 /******* PREVIEW OPTIONS ********/
@@ -119,4 +152,13 @@ td, th{
 .preview-options div:hover{
     border-bottom: 2px solid black;
     transition: 50ms;
+}
+
+@media screen and (max-width:900px){
+    /*Change table view below 900px*/
+    #table-data-rows td{
+        display: block;
+        padding: 10px;
+    }
+
 }
