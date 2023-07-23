@@ -1,6 +1,6 @@
 //comparison is the thief pf joy :D
 require("dotenv").config();
-const {runMain,runInsertMongo,runGetMongo} = require("./data.js");
+const {runInsertMongo,runGetMongo,runDeleteMongo} = require("./data.js");
 const express = require("express");
 const cors = require("cors");
 const app = express();
@@ -12,6 +12,22 @@ app.use(express.urlencoded({extended:false}));
 app.use(express.json());
 //app.use(_tracker);
 
+//GET TABLE DATA
+app.get("/backend/api/getTableData", async (req, res)=>{
+    const param = {body:"body1",header:"header1"};
+    const db_res = await runGetMongo(param);
+    const date = new Date(); // USED TO DISPLAY IN DEBUG
+
+    if(db_res.success){//if opp success
+        res.json({db:db_res.DBdata, success:db_res.success, db_message:db_res.DB_Message});
+        console.log(`backend responding: success at ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`);;
+    }else{
+        res.json({db:db_res.DBdata, success:db_res.success, db_message:db_res.DB_Message});
+        console.log(`backend responding: fail at ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`);;
+    }
+});
+
+//SAVE NEW TABLE ROW
 app.post("/backend/api/saveData", async(req, res)=>{
     const user_data = req.body;
     console.log("user data", user_data);
@@ -25,18 +41,12 @@ app.post("/backend/api/saveData", async(req, res)=>{
     res.json({message:response.DB_Message, success:response.insert_record});
 });
 
-app.get("/backend/api/getTableData", async (req, res)=>{
-    const param = {body:"body1",header:"header1"};
-    const db_res = await runGetMongo(param);
-    const date = new Date(); // USED TO DISPLAY IN DEBUG
-
-    if(db_res.success){//if opp success
-        res.json({db:db_res.DBdata, success:db_res.success, db_message:db_res.DB_Message});
-        console.log(`backend responding: success at ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`);;
-    }else{
-        res.json({db:db_res.DBdata, success:db_res.success, db_message:db_res.DB_Message});
-        console.log(`backend responding: fail at ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`);;
-    }
+//DELETE FROM TABLE
+app.delete("/backend/api/deleteTableRow", async(req, res)=>{
+    const data = req.body;
+    const response = await runDeleteMongo(data);
+    res.json({message:response.DB_Message, success:response.success});
+    console.log(`Delete request made for row id: ${data.id}`);
 });
 
 app.listen(PORT, ()=>{

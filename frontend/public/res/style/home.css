@@ -101,7 +101,7 @@ tr:hover{
     height: 100%;
     min-width: 40%;
     max-width: 70%;
-    row-gap: 40px;
+    row-gap: 20px;
     flex-direction: column;
     font: 15px Helvetica;
     border-left:1px solid lightgray;
@@ -111,7 +111,6 @@ tr:hover{
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    row-gap: 10px;
 }
 
 .story-header{

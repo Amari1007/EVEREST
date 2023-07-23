@@ -19,7 +19,7 @@ async function runInsertMongo(user_data = {}){
   };
   
   try {
-    if(user_data.body != undefined || user_data.header != undefined){
+    if(user_data.body != undefined && user_data.header != undefined){
       await mongoose.connect(localSrv);
       console.log("db connected");
   
@@ -70,7 +70,7 @@ async function runGetMongo(param = {}){
     const addSchema = new mongoose.Schema(schema);
     const dbModel = mongoose.model("dbhimas",addSchema);
 
-    if(param.body != undefined || param.header != undefined || param !=null){
+    if(param.body != undefined && param.header != undefined && param !=null){
       console.log("responding...");
       return {DBdata:await dbModel.find().sort({date:-1}), success:true, DB_Message:"read opp success"};
     }else{
@@ -89,4 +89,38 @@ async function runGetMongo(param = {}){
 
 }
 
-module.exports = {runMain, runInsertMongo, runGetMongo};
+//DELETE ROW IN MONGO
+async function runDeleteMongo(param = {}){
+  const schema = {
+    id:Number,
+    header:String,
+  }
+
+  try {
+    await mongoose.connect(localSrv);
+    const addSchema = new mongoose.Schema(schema);
+    const con = mongoose.model('dbhimas', addSchema);
+
+    if(param.id != undefined && param.header != undefined && param != null){
+      await con.deleteOne({id:param.id});
+      console.log("db responding");
+      return{DB_Message: "Successfully Deleted from db", success:true};
+    }else{
+      throw "No param provided";
+    }
+
+  } catch (error) {
+    console.log(`An error occured while deleting row with id ${param.id} -> ${error}`);
+    return{
+      DB_Message:`An error occured while deleting row with id ${param.id}`,
+      success:false,
+     }
+  }finally{
+    mongoose.models = {}; //RESET ALL MODELS
+    await mongoose.connection.close();
+    console.log("closing db connection");
+  }
+
+}
+
+module.exports = {runMain, runInsertMongo, runGetMongo, runDeleteMongo};

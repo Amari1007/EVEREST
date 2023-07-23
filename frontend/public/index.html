@@ -19,7 +19,7 @@
             <h3>Navbar</h3>
         </nav>
         
-        <main>            
+        <main>          
             <div class="top-box">
                 <input type="search" placeholder="Search..." title="Type in to search">
             </div>
@@ -50,17 +50,13 @@
                 <div id="preview-view">
                     <div class="preview-options">
                         <div class="btn-edit"> <i class="fa fa-pencil"></i> Edit</div>
-                        <div class="btn-save"> <i class="fa fa-save"></i> Save</div>
-                        <div class="btn-delete"> <i class="fa fa-trash"></i> Delete</div>
-                        <div class="btn-close"> <i class="fa fa-window-close"></i> Close</div>
+                        <div class="btn-delete" onclick="delete_btn(this)"> <i class="fa fa-trash"></i> Delete</div>
+                        <div class="btn-close" onclick="close_view(this)"> <i class="fa fa-window-close"></i> Close</div>
                     </div>
 
                     <div class="story-view">
                         <div class="story-header">
-                            <h2></h2>
-                            <p></p>
-                            <p></p>
-                            <p></p>
+                            <!-- Artitcle INFO HERE -->
                         </div>
 
                         <div class="story-body">
@@ -80,6 +76,7 @@
 </body>
 
 <script src="row_select.js" defer></script>
-<script src="populate_table.js" defer></script>
+<script src="populate_table.js" type="module" defer></script>
+<script src="home-btn-options.js" type="module" defer></script>
 
 </html>

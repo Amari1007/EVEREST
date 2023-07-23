@@ -16,10 +16,17 @@ async function row_selected(_obj){
         header_div: get_story_view.getElementsByClassName("story-header")[0],
         story_body: get_story_view.getElementsByClassName("story-body")[0],
     };
-
+   
     //GET DB DATA FROM LOCALSTORAGE
     const row_obj = await JSON.parse(localStorage.getItem("tableDb_obj"));
+
+    //SET CURRENTLY SELECTED ROW IN LOCALSTORAGE (FOR OTHER USES)
+    const focus_row = row_obj.find((value)=>{
+        return Number.parseInt(value.id) == Number.parseInt(obj_id)
+    });
+    localStorage.setItem("row_focused",JSON.stringify(focus_row));
     
+    //DISPLAY SELECTED ROW IN DIV
     story_panel.header_div.innerHTML = `${
         row_obj.map((value)=>{
             if(Number.parseInt(obj_id)==Number.parseInt(value.id)){

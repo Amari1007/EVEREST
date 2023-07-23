@@ -22,28 +22,10 @@ async function getDB_data(){
     
 };
 
-// ATTEMPT TO GET DATA FROM DB
-window.addEventListener("load", async()=>{
-    // SET SYSTEM USER IN LOCALSTORAGE
-    const sysUser = await {name:"Chaupi Ghambi", dbName:"MongoDB"};
-    localStorage.setItem("sysUser", JSON.stringify(sysUser));
-
-    //SAVE DATABASE ROWS IN LOCALSTORAGE
+//RUN FUNCTION TO POPULATE TABLE WITH DB ROWS
+async function populate_table(){
     const data = await getDB_data();
-    
-    if(data.success){
-        // data.db IS AN ARRAY
-        localStorage.setItem("tableDb_obj", JSON.stringify(data.db));
-    }else{
-        localStorage.setItem("tableDb_obj", null);
-    }
-
-});
-
-//POPULATE TABLE VIEW AFTER DOM LOAD
-window.addEventListener("DOMContentLoaded", async ()=>{
-    const data = await getDB_data();
-
+    await Initialize_localStorage({data:data}); //LOCALSTORAGE
     if(data.success){ //if success == true
         console.table(data.db_message);
         table_rows.innerHTML = `${data.db.map((value,index)=>`
@@ -58,4 +40,29 @@ window.addEventListener("DOMContentLoaded", async ()=>{
             <tr> <td colspan="6">No Rows Fetched: ${data.db_message}</td> </tr>
         `
     }
+
+}
+
+//SAVE DB ROW INFO IN LOCALSTORAGE
+async function Initialize_localStorage(param = {}){
+    // SET SYSTEM USER IN LOCALSTORAGE
+    const sysUser = await {name:"Chaupi Ghambi", dbName:"MongoDB"};
+    localStorage.setItem("sysUser", JSON.stringify(sysUser));
+
+    //SAVE DATABASE ROWS IN LOCALSTORAGE
+    const data = await param.data;
+    if(data.success){
+        // data.db IS AN ARRAY
+        localStorage.setItem("tableDb_obj", JSON.stringify(data.db));
+    }else{
+        localStorage.setItem("tableDb_obj", null);
+    }
+
+}
+
+//POPULATE TABLE VIEW AFTER DOM LOAD
+window.addEventListener("DOMContentLoaded", async ()=>{
+    await populate_table();
 });
+
+export {populate_table};
